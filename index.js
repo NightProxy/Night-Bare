@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const http = require('node:http');
+const express = require('express')
+const app = express()
 const { createBareServer } = require('@tomphttp/bare-server-node');
 
 const httpServer = http.createServer();
@@ -22,6 +24,10 @@ httpServer.on('upgrade', (req, socket, head) => {
 		socket.end();
 	}
 });
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+  });
 
 httpServer.on('listening', () => {
 	console.log('Andromeda Bare server online');
