@@ -24,7 +24,7 @@ httpServer.on('upgrade', (req, socket, head) => {
 });
 
 httpServer.on('listening', () => {
-	console.log('HTTP server listening');
+	console.log('Andromeda Bare server online');
 });
 
 httpServer.listen({
